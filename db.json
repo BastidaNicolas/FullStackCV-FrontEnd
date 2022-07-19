@@ -7,8 +7,8 @@
     "social": [
         {
             "name": "Github",
-            "icon": "bi bi-github",
-            "link": "#"
+            "link": "#",
+            "image": "meme"
         }
     ],
     "experience": [
@@ -77,7 +77,11 @@
     "projects": [
         {
             "title": "Carpincho.xyz",
-            "stacc": "JavaScript - React - SASS",
+            "stacc": [
+                "JavaScript",
+                "React",
+                "SASS"
+            ],
             "about": "Display essential information from the cryptoverse. Carpincho.xyz provides top/trending coins, charting, exchanges, latest news and much more utilizing Coingecko, Tradingview and Bing news API.",
             "links": {
                 "github": "",
@@ -90,8 +94,12 @@
         },
         {
             "title": "Odontodracuello.com.ar",
-            "stacc": ["JavaScript", "React", "SASS"],
-            "about": "Dental office website designed in Figma and developed using React and leaflet.js with the goal of increasing online presence.",
+            "stacc": [
+                "JavaScript",
+                "React",
+                "SASS"
+            ],
+            "about": "Display essential information from the cryptoverse. Carpincho.xyz provides top/trending coins, charting, exchanges, latest news and much more utilizing Coingecko, Tradingview and Bing news API.",
             "links": {
                 "github": "",
                 "website": ""

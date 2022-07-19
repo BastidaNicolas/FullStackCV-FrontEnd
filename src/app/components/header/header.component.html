@@ -20,18 +20,8 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Socials
                             </button>
-                            <ul class="dropdown-menu rounded-0" aria-labelledby="btnGroupDrop1">
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-github"></i> Github</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-linkedin"></i> LinkedIn</a>
-                                </li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-stack-overflow"></i>
-                                        Stackoverflow</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-medium"></i> Medium</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-twitter"></i> Twitter</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-instagram"></i> Instagram</a>
-                                </li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-youtube"></i> Youtube</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-globe2"></i> Website</a></li>
+                            <ul class="dropdown-menu rounded-0" aria-labelledby="btnGroupDrop1" *ngFor="let social of socialLinks" >
+                                <li><a class="dropdown-item" href={{social.link}}><i class={{social.icon}}></i> {{social.name}}</a></li>
                             </ul>
                         </div>
                     </div>

@@ -1,65 +1,24 @@
 <div class="container mb-5" style="max-width: 812px;">
     <h4 class="fw-bold mb-4">Experience</h4>
-    <div class="column">
-        <div class="row mb-3">
+    <div class="column" *ngFor="let experience of experienceData">
+        <div class="row mb-3" >
             <div class="row">
                 <div class="col-auto">
-                    <img src="" alt="" width="75" height="75">
+                    <img src={{experience.company.image}} alt={{experience.company.alt}} width="75" height="75">
                 </div>
                 <div class="col">
                     <div class="row">
-                        <h5 class="fw-bold">Front-end Developer</h5>
+                        <h5 class="fw-bold">{{experience.title}}</h5>
                     </div>
                     <div class="row">
-                        <h6>2020 - Current</h6>
+                        <h6>{{experience.time.start}} - {{experience.time.end}}</h6>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-end">
                 <div class="col col-sm-10">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Coded using HTML, CSS and JavaScript to develop features for
-                            both mobile and desktop platforms.</li>
-                        <li class="list-group-item">Applied libraries or frameworks like React.js, Tailwind,
-                            MaterialUI, etc. depending on clients needs or requirements.</li>
-                        <li class="list-group-item">Collaborated with clients during development processes to
-                            confirm creative proposalsand design best practices.</li>
-                        <li class="list-group-item">Struck balance between functional and aesthetic designs while
-                            maintaining cohesive branding across sites.</li>
-                        <li class="list-group-item">Authored reusable content modules and developed prototypes.</li>
-                        <li class="list-group-item">Identafied bottlenecks and bugs and devised solutions.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="row">
-                <div class="col-auto">
-                    <img src="" alt="" width="75" height="75">
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <h5 class="fw-bold">Front-end Developer</h5>
-                    </div>
-                    <div class="row">
-                        <h6>2020 - Current</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-end">
-                <div class="col col-sm-10">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Coded using HTML, CSS and JavaScript to develop features for
-                            both mobile and desktop platforms.</li>
-                        <li class="list-group-item">Applied libraries or frameworks like React.js, Tailwind,
-                            MaterialUI, etc. depending on clients needs or requirements.</li>
-                        <li class="list-group-item">Collaborated with clients during development processes to
-                            confirm creative proposalsand design best practices.</li>
-                        <li class="list-group-item">Struck balance between functional and aesthetic designs while
-                            maintaining cohesive branding across sites.</li>
-                        <li class="list-group-item">Authored reusable content modules and developed prototypes.</li>
-                        <li class="list-group-item">Identafied bottlenecks and bugs and devised solutions.</li>
+                    <ul class="list-group list-group-flush" *ngFor="let bullet of experience.list">
+                        <li class="list-group-item border-bottom">{{bullet}}</li>
                     </ul>
                 </div>
             </div>

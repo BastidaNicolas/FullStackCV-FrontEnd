@@ -1,31 +1,17 @@
 <div class="container mb-5" style="max-width: 812px;">
     <h4 class="fw-bold mb-4">Projects</h4>
-    <div class="column">
+    <div class="column" *ngFor="let project of projectsData">
         <div class="row mb-3">
             <div class="col-12 col-sm mb-2 mb-sm-0">
-                <img class="w-100 h-100" src="" width="350" height="167" alt="">
+                <img class="w-100 h-100" src={{project.image.src}} width="350" height="167" alt={{project.image.alt}}>
             </div>
             <div class="col px-sm-0">
-                <h5 class="fw-bold">Carpincho.xyz</h5>
-                <h6 class="">JavaScript - React - SASS </h6>
-                <p>Display essential information from the cryptoverse. Carpincho.xyz provides top/trending coins, charting, exchanges, latest news and much more utilizing Coingecko, Tradingview and Bing news API.</p>
+                <h5 class="fw-bold">{{project.title}}</h5>
+                <h6 class="">{{project.stacc}}</h6>
+                <p>{{project.about}}</p>
                 <div class="row-auto">
-                    <a href="#" class="text-dark">Github</a>
-                    <a href="#" class="text-dark">Website</a>
-                </div>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-12 col-sm mb-2 mb-sm-0">
-                <img class="w-100 h-100" src="" width="350" height="167" alt="">
-            </div>
-            <div class="col px-sm-0">
-                <h5 class="fw-bold">Odontodracuello.com.ar</h5>
-                <h6 class="">JavaScript - React - SASS </h6>
-                <p>Display essential information from the cryptoverse. Carpincho.xyz provides top/trending coins, charting, exchanges, latest news and much more utilizing Coingecko, Tradingview and Bing news API.</p>
-                <div class="row-auto">
-                    <a href="#" class="text-dark">Github</a>
-                    <a href="#" class="text-dark">Website</a>
+                    <a href={{project.links.github}} class="text-dark me-3">Github</a>
+                    <a href={{project.links.website}} class="text-dark">Website</a>
                 </div>
             </div>
         </div>
