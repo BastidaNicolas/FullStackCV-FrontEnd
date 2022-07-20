@@ -90,7 +90,7 @@
         },
         {
             "title": "Odontodracuello.com.ar",
-            "stacc": ["JavaScript", "React", "SASS"],
+            "stacc": "JavaScript - React - SASS",
             "about": "Dental office website designed in Figma and developed using React and leaflet.js with the goal of increasing online presence.",
             "links": {
                 "github": "",
