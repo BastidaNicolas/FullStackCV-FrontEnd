@@ -11,6 +11,7 @@ import { EducationComponent } from './components/education/education.component';
 import { SkillzComponent } from './components/skillz/skillz.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoginModalComponent } from './components/login-modal/login-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FooterComponent } from './components/footer/footer.component';
     SkillzComponent,
     ProjectsComponent,
     FooterComponent,
+    LoginModalComponent,
   ],
   imports: [
     BrowserModule,
