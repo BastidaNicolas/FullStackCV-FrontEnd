@@ -1,0 +1,27 @@
+<div class="container mb-5" style="max-width: 812px;">
+    <h4 class="fw-bold mb-4">Experience</h4>
+    <div class="column" *ngFor="let experience of experienceData">
+        <div class="row mb-3" >
+            <div class="row">
+                <div class="col-auto">
+                    <img src={{experience.company.image}} alt={{experience.company.alt}} width="75" height="75">
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <h5 class="fw-bold">{{experience.title}}</h5>
+                    </div>
+                    <div class="row">
+                        <h6>{{experience.time.start}} - {{experience.time.end}}</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col col-sm-10">
+                    <ul class="list-group list-group-flush" *ngFor="let bullet of experience.list">
+                        <li class="list-group-item border-bottom">{{bullet}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

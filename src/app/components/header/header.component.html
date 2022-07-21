@@ -1,0 +1,35 @@
+<div class="bg-primary mb-3">
+    <div class="container py-2" style="max-width: 812px">
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="row align-items-center">
+                    <div class="col-auto text-white">
+                        <img src="assets/imgs/ArgProgramaLogo.svg" height="30" width="87.89"
+                            alt="argentina programa logo">
+                    </div>
+                    <div class="col-auto">
+                        <span class="text-white fw-bold">#YoProgramo</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="row align-items-center justify-content-end">
+                    <div class="col-auto ps-0">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle rounded-0"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Socials
+                            </button>
+                            <ul class="dropdown-menu rounded-0" aria-labelledby="btnGroupDrop1" *ngFor="let social of socialLinks" >
+                                <li><a class="dropdown-item" href={{social.link}}><i class={{social.icon}}></i> {{social.name}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-auto ps-0">
+                        <button type="button" class="btn btn-outline-light rounded-0 pt-1 pb-2 px-4">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
