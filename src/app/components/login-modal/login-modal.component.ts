@@ -13,9 +13,16 @@ export class LoginModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setDefault(){
-    this.register = false;
-    this.forgotPass = false;
+  setDefault(delay:number){
+    setTimeout(() => {
+      this.register = false;
+      this.forgotPass = false;
+    }, delay)
+  }
+  handleBackgroundClick(e:any){
+    if(e.target.id === "loginModal"){
+      this.setDefault(200)
+    }
   }
   setRegister(value:boolean){
     this.register = value;
@@ -23,5 +30,4 @@ export class LoginModalComponent implements OnInit {
   setForgotPass(value:boolean){
     this.forgotPass = value;
   }
-
 }

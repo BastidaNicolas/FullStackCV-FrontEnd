@@ -1,11 +1,11 @@
-<div class="modal fade " tabindex="-1" id="loginModal">
+<div class="modal fade" tabindex="-1" id="loginModal" (click)="handleBackgroundClick($event)">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-0">
             <div class="modal-header">
                 <h5 class="modal-title fw-bold" *ngIf="!register && !forgotPass">Login</h5>
                 <h5 class="modal-title fw-bold" *ngIf="register">Register</h5>
                 <h5 class="modal-title fw-bold" *ngIf="forgotPass">Password Reset</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="setDefault()"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="setDefault(200)"></button>
             </div>
             <div class="modal-body" *ngIf="!register && !forgotPass">
                 <div class="mb-3">
@@ -54,7 +54,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal" *ngIf="!register && !forgotPass">Close</button>
-                <button type="button" class="btn btn-secondary rounded-0" (click)="setDefault()" *ngIf="register || forgotPass">Back</button>
+                <button type="button" class="btn btn-secondary rounded-0" (click)="setDefault(0)" *ngIf="register || forgotPass">Back</button>
                 <button type="button" class="btn btn-primary rounded-0" *ngIf="!register && !forgotPass">Login</button>
                 <button type="button" class="btn btn-primary rounded-0" *ngIf="register">Register</button>
                 <button type="button" class="btn btn-primary rounded-0" *ngIf="forgotPass">Send</button>
