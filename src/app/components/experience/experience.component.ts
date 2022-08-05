@@ -8,6 +8,8 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
 })
 export class ExperienceComponent implements OnInit {
   experienceData:any;
+  isEdit:boolean = false;
+  isAdd:boolean = false;
   constructor(private experienceServ:PortfolioService) { }
 
   ngOnInit(): void {
@@ -15,6 +17,10 @@ export class ExperienceComponent implements OnInit {
     .subscribe((data) => {
       this.experienceData = data.experience;
     })
+  }
+
+  handleEdit(){
+    this.isEdit = !this.isEdit
   }
 
 }

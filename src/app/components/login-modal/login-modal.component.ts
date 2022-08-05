@@ -21,7 +21,7 @@ export class LoginModalComponent implements OnInit {
   }
   handleBackgroundClick(e:any){
     if(e.target.id === "loginModal"){
-      this.setDefault(200)
+      this.setDefault(150)
     }
   }
   setRegister(value:boolean){

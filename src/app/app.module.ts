@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
+import { RouterModule, Routes } from '@angular/router'
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UserHeaderComponent } from './components/user-header/user-header.component';
@@ -12,6 +12,8 @@ import { SkillzComponent } from './components/skillz/skillz.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginModalComponent } from './components/login-modal/login-modal.component';
+
+const routes: Routes = []
 
 @NgModule({
   declarations: [
@@ -28,8 +30,10 @@ import { LoginModalComponent } from './components/login-modal/login-modal.compon
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
