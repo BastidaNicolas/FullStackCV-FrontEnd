@@ -12,6 +12,7 @@ import { SkillzComponent } from './components/skillz/skillz.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginModalComponent } from './components/login-modal/login-modal.component';
+import { ExperienceModuleComponent } from './components/experience-module/experience-module.component';
 
 const routes: Routes = []
 
@@ -27,6 +28,7 @@ const routes: Routes = []
     ProjectsComponent,
     FooterComponent,
     LoginModalComponent,
+    ExperienceModuleComponent,
   ],
   imports: [
     BrowserModule,

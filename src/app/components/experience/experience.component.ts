@@ -22,5 +22,8 @@ export class ExperienceComponent implements OnInit {
   handleEdit(){
     this.isEdit = !this.isEdit
   }
+  handleAdd(){
+    this.isAdd = !this.isAdd
+  }
 
 }
