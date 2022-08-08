@@ -8,6 +8,8 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
 })
 export class EducationComponent implements OnInit {
   educationData:any;
+  isAdd:boolean=false;
+  isEdit:boolean=false;
   constructor(private educationServ : PortfolioService) { }
 
   ngOnInit(): void {
@@ -15,6 +17,13 @@ export class EducationComponent implements OnInit {
     .subscribe((data) => {
       this.educationData = data.education;
     })
+  }
+
+  handleEdit(){
+    this.isEdit = !this.isEdit
+  }
+  handleAdd(){
+    this.isAdd = !this.isAdd
   }
 
 }

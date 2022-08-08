@@ -7,7 +7,9 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
-  projectsData:any;
+  projectsData:any;  
+  isAdd:boolean=false;
+  isEdit:boolean=false;
   constructor(private projectServ:PortfolioService) { }
 
   ngOnInit(): void {
@@ -16,5 +18,13 @@ export class ProjectsComponent implements OnInit {
       this.projectsData = data.projects
     })
   }
+
+  handleEdit(){
+    this.isEdit = !this.isEdit
+  }
+  handleAdd(){
+    this.isAdd = !this.isAdd
+  }
+
 
 }

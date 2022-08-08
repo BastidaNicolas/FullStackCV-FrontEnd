@@ -1,6 +1,15 @@
 <div class="container mb-5" style="max-width: 812px;">
-    <h4 class="fw-bold mb-4">Education</h4>
-    <div class="column" *ngFor="let education of educationData">
+    <div class="mb-4 d-flex justify-content-between">
+        <h4 class="fw-bold">Education</h4>
+        <div class="h-full d-flex align-items-center" *ngIf="isEdit">
+            <button class="btn p-0 border-0 fs-4 text me-3" (click)="handleAdd() " data-bs-toggle="modal" data-bs-target="#educationModal"><i class="bi bi-plus-square"></i></button>
+            <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()"><i
+                    class="bi bi-check-square"></i></button>
+        </div>
+        <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()" *ngIf="!isEdit"><i
+                class="bi bi-pencil-square"></i></button>
+    </div>
+    <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let education of educationData">
         <div class="row mb-3">
             <div class="row mb-1">
                 <div class="col-auto">
@@ -26,3 +35,4 @@
 
     </div>
 </div>
+<app-education-module></app-education-module>

@@ -13,6 +13,10 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginModalComponent } from './components/login-modal/login-modal.component';
 import { ExperienceModuleComponent } from './components/experience-module/experience-module.component';
+import { ProfileModuleComponent } from './components/profile-module/profile-module.component';
+import { EducationModuleComponent } from './components/education-module/education-module.component';
+import { SkillsModuleComponent } from './components/skills-module/skills-module.component';
+import { ProjectsModuleComponent } from './components/projects-module/projects-module.component';
 
 const routes: Routes = []
 
@@ -29,6 +33,10 @@ const routes: Routes = []
     FooterComponent,
     LoginModalComponent,
     ExperienceModuleComponent,
+    ProfileModuleComponent,
+    EducationModuleComponent,
+    SkillsModuleComponent,
+    ProjectsModuleComponent,
   ],
   imports: [
     BrowserModule,

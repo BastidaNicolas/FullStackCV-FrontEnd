@@ -8,6 +8,8 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
 })
 export class SkillzComponent implements OnInit {
   skills:any;
+  isAdd:boolean=false;
+  isEdit:boolean=false;
   constructor(private skillsServ:PortfolioService) { }
 
   ngOnInit(): void {
@@ -15,6 +17,13 @@ export class SkillzComponent implements OnInit {
     .subscribe((data)=>{
       this.skills = data.skills;
     })
+  }
+
+  handleEdit(){
+    this.isEdit = !this.isEdit
+  }
+  handleAdd(){
+    this.isAdd = !this.isAdd
   }
 
 }

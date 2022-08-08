@@ -1,8 +1,17 @@
 <div class="container mb-5" style="max-width: 812px;">
-    <h4 class="fw-bold mb-4">Hard & Soft Skills</h4>
+    <div class="mb-4 d-flex justify-content-between">
+        <h4 class="fw-bold">Hard & Soft Skills</h4>
+        <div class="h-full d-flex align-items-center" *ngIf="isEdit">
+            <button class="btn p-0 border-0 fs-4 text me-3" (click)="handleAdd() " data-bs-toggle="modal" data-bs-target="#skillsModal"><i class="bi bi-plus-square"></i></button>
+            <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()"><i
+                    class="bi bi-check-square"></i></button>
+        </div>
+        <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()" *ngIf="!isEdit"><i
+                class="bi bi-pencil-square"></i></button>
+    </div>
     <div class="row g-3" *ngFor="let skill of skills">
         <div class="col-12  col-sm-6 col-md-3">
-            <div class="row align-items-center">
+            <div class="row align-items-center" [ngClass]="{'hover': isEdit}">
                 <div class="col-auto"><img src={{skill.image.src}} width="51" height="51" alt={{skill.image.alt}}></div>
                 <div class="col">
                     <span class="fw-bold">
@@ -13,3 +22,4 @@
         </div>
     </div>
   </div>
+  <app-skills-module></app-skills-module>
