@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-module.component.scss']
 })
 export class ProfileModuleComponent implements OnInit {
-
+  addLink:boolean=false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  handleAddLink(){
+    this.addLink = !this.addLink;
   }
 
 }
