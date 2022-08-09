@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects-module.component.scss']
 })
 export class ProjectsModuleComponent implements OnInit {
-
+  addListItem:boolean=false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  handleAddListItem(){
+    this.addListItem = !this.addListItem;
   }
 
 }
