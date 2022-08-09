@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router'
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UserHeaderComponent } from './components/user-header/user-header.component';
@@ -41,6 +42,7 @@ const routes: Routes = []
   imports: [
     BrowserModule,
     HttpClientModule,
+    DragDropModule,
     RouterModule.forRoot(routes)
   ],
   

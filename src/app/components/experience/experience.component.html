@@ -2,36 +2,40 @@
     <div class="mb-4 d-flex justify-content-between">
         <h4 class="fw-bold">Experience</h4>
         <div class="h-full d-flex align-items-center" *ngIf="isEdit">
-            <button class="btn p-0 border-0 fs-4 text me-3" (click)="handleAdd() " data-bs-toggle="modal" data-bs-target="#experienceModal"><i class="bi bi-plus-square"></i></button>
+            <button class="btn p-0 border-0 fs-4 text me-3" (click)="handleAdd() " data-bs-toggle="modal"
+                data-bs-target="#experienceModal"><i class="bi bi-plus-square"></i></button>
             <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()"><i
                     class="bi bi-check-square"></i></button>
         </div>
         <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()" *ngIf="!isEdit"><i
                 class="bi bi-pencil-square"></i></button>
     </div>
-    <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let experience of experienceData">
-        <div class="row mb-3">
-            <div class="row">
-                <div class="col-auto">
-                    <img src={{experience.company.image}} alt={{experience.company.alt}} width="75" height="75">
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <h5 class="fw-bold">{{experience.title}}</h5>
+    <div cdkDropList (cdkDropListDropped)="drop($event)" >
+        <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let experience of experienceData" cdkDrag [cdkDragDisabled]="!isEdit">
+            <div class="row mb-3">
+                <div class="row">
+                    <div class="col-auto">
+                        <img src={{experience.company.image}} alt={{experience.company.alt}} width="75" height="75">
                     </div>
-                    <div class="row">
-                        <h6>{{experience.time.start}} - {{experience.time.end}}</h6>
+                    <div class="col">
+                        <div class="row">
+                            <h5 class="fw-bold">{{experience.title}}</h5>
+                        </div>
+                        <div class="row">
+                            <h6>{{experience.time.start}} - {{experience.time.end}}</h6>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row justify-content-end">
-                <div class="col col-sm-10">
-                    <ul class="list-group list-group-flush" *ngFor="let bullet of experience.list">
-                        <li class="list-group-item border-bottom bg-transparent">{{bullet}}</li>
-                    </ul>
+                <div class="row justify-content-end">
+                    <div class="col col-sm-10">
+                        <ul class="list-group list-group-flush" *ngFor="let bullet of experience.list">
+                            <li class="list-group-item border-bottom bg-transparent">{{bullet}}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 <app-experience-module></app-experience-module>
