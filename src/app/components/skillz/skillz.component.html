@@ -2,24 +2,32 @@
     <div class="mb-4 d-flex justify-content-between">
         <h4 class="fw-bold">Hard & Soft Skills</h4>
         <div class="h-full d-flex align-items-center" *ngIf="isEdit">
-            <button class="btn p-0 border-0 fs-4 text me-3" (click)="handleAdd() " data-bs-toggle="modal" data-bs-target="#skillsModal"><i class="bi bi-plus-square"></i></button>
+            <button class="btn p-0 border-0 fs-4 text me-3" (click)="handleAdd() " data-bs-toggle="modal"
+                data-bs-target="#skillsModal"><i class="bi bi-plus-square"></i></button>
             <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()"><i
                     class="bi bi-check-square"></i></button>
         </div>
         <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()" *ngIf="!isEdit"><i
                 class="bi bi-pencil-square"></i></button>
     </div>
-    <div class="row g-3" *ngFor="let skill of skills">
-        <div class="col-12  col-sm-6 col-md-3">
-            <div class="row align-items-center" [ngClass]="{'hover': isEdit}">
-                <div class="col-auto"><img src={{skill.image.src}} width="51" height="51" alt={{skill.image.alt}}></div>
-                <div class="col">
-                    <span class="fw-bold">
-                        {{skill.name}}
-                    </span>
+    <div class="d-flex flex-wrap" cdkDropListGroup>
+        <ng-container class="" *ngFor="let skill of skills; let i=index">
+            <div class="mb-4 me-4 ms-0" style="width: 170px;height: 51px;" cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="{item:skill,index:i}" (cdkDropListDropped)="drop($event)">
+                <div cdkDrag [cdkDragDisabled]="!isEdit">
+                    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                    <div class="d-flex align-items-center" [ngClass]="{'hover': isEdit}">
+                        <div class=""><img src={{skill.image.src}} width="51" height="51"
+                                alt={{skill.image.alt}}>
+                        </div>
+                        <div class="ms-3">
+                            <span class="fw-bold">
+                                {{skill.name}}
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </ng-container>
     </div>
-  </div>
-  <app-skills-module></app-skills-module>
+</div>
+<app-skills-module></app-skills-module>

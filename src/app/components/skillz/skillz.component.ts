@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-skillz',
@@ -21,9 +22,16 @@ export class SkillzComponent implements OnInit {
 
   handleEdit(){
     this.isEdit = !this.isEdit
+    console.log(this.skills)
   }
   handleAdd(){
     this.isAdd = !this.isAdd
   }
+
+  drop(event: CdkDragDrop<any>) {
+    this.skills[event.previousContainer.data.index] = event.container.data.item;
+    this.skills[event.container.data.index] = event.previousContainer.data.item;
+  }
+
 
 }

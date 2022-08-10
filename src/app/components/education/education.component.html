@@ -9,30 +9,32 @@
         <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()" *ngIf="!isEdit"><i
                 class="bi bi-pencil-square"></i></button>
     </div>
-    <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let education of educationData">
-        <div class="row mb-3">
-            <div class="row mb-1">
-                <div class="col-auto">
-                    <img src={{education.image.src}} alt={{education.image.alt}} width="75" height="75">
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <h5 class="fw-bold">{{education.title}}</h5>
+    <div cdkDropList (cdkDropListDropped)="drop($event)" >
+        <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let education of educationData" cdkDrag [cdkDragDisabled]="!isEdit">
+            <div class="row mb-3">
+                <div class="row mb-1">
+                    <div class="col-auto">
+                        <img src={{education.image.src}} alt={{education.image.alt}} width="75" height="75">
                     </div>
-                    <div class="row">
-                        <h6>{{education.time.start}} - {{education.time.end}}</h6>
+                    <div class="col">
+                        <div class="row">
+                            <h5 class="fw-bold">{{education.title}}</h5>
+                        </div>
+                        <div class="row">
+                            <h6>{{education.time.start}} - {{education.time.end}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col col-sm-10">
+                        <p>
+                            {{education.description}}
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-end">
-                <div class="col col-sm-10">
-                    <p>
-                        {{education.description}}
-                    </p>
-                </div>
-            </div>
-        </div>
 
+        </div>
     </div>
 </div>
 <app-education-module></app-education-module>
