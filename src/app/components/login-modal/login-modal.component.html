@@ -15,7 +15,7 @@
                 <div class="mb-3">
                     <label for="formGroupExampleInput2" class="form-label fw-bold">Password</label>
                     <input type="text" class="form-control rounded-0" id="formGroupExampleInput2" placeholder="Password">
-                    <button type="button" class="btn btn-link p-0 fs-6 fw-lighter text-decoration-none" (click)="setForgotPass(true)">Forgot my
+                    <button type="button" class="btn btn-link p-0 fs-6 text-decoration-none" (click)="setForgotPass(true)">Forgot my
                         password</button>
                 </div>
                 <div class="mb-3 text-muted d-flex justify-content-evenly">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="mb-2 text-center">
                     <span class="d-block" >Don't have an account?</span>
-                    <button type="button" class="btn btn-link p-0 fs-6 fw-lighter" (click)="setRegister(true)">Register</button>
+                    <button type="button" class="btn btn-link p-0 fs-6" (click)="setRegister(true)">Register</button>
                 </div>
             </div>
             <div class="modal-body" *ngIf="register">
