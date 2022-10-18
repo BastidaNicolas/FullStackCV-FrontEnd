@@ -12,10 +12,10 @@
     </div>
     <div cdkDropList (cdkDropListDropped)="drop($event)" >
         <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let experience of experienceData" cdkDrag [cdkDragDisabled]="!isEdit">
-            <div class="row mb-3">
-                <div class="row">
-                    <div class="col-auto">
-                        <img src={{experience.company.image}} alt={{experience.company.alt}} width="75" height="75">
+            <div class="col mb-4">
+                <div class="row p-0 m-0 mb-2 mb-md-1">
+                    <div class="col-auto p-0 component-image-container">
+                        <img class="component-image" src={{experience.company.src}} alt={{experience.company.alt}}>
                     </div>
                     <div class="col">
                         <div class="row">
@@ -26,10 +26,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-end">
-                    <div class="col col-sm-10">
+                <div class="row justify-content-end p-0 m-0">
+                    <div class="col col-sm-10 p-0">
                         <ul class="list-group list-group-flush" *ngFor="let bullet of experience.list">
-                            <li class="list-group-item border-bottom bg-transparent">{{bullet}}</li>
+                            <li class="list-group-item border-bottom bg-transparent px-0">{{bullet}}</li>
                         </ul>
                     </div>
                 </div>

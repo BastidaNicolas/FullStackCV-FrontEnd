@@ -11,10 +11,10 @@
     </div>
     <div cdkDropList (cdkDropListDropped)="drop($event)" >
         <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let education of educationData" cdkDrag [cdkDragDisabled]="!isEdit">
-            <div class="row mb-3">
-                <div class="row mb-1">
-                    <div class="col-auto">
-                        <img src={{education.image.src}} alt={{education.image.alt}} width="75" height="75">
+            <div class="col mb-3">
+                <div class="row mb-3 mb-md-1 mx-0">
+                    <div class="col-auto p-0 component-image-container">
+                        <img class="component-image" src={{education.image.src}} alt={{education.image.alt}}>
                     </div>
                     <div class="col">
                         <div class="row">
@@ -25,8 +25,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-end">
-                    <div class="col col-sm-10">
+                <div class="row justify-content-end mx-0">
+                    <div class="col p-0 col-sm-10">
                         <p>
                             {{education.description}}
                         </p>

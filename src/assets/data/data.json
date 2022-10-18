@@ -19,8 +19,8 @@
                 "end": "Current"
             },
             "company": {
-                "alt": "",
-                "img": ""
+                "alt": "lolxd",
+                "src": "/assets/imgs/451593.jpg"
             },
             "list": [
                 "Coded using HTML, CSS and JavaScript to develop features for both mobile and desktop platforms.",
@@ -38,8 +38,8 @@
                 "end": "Current"
             },
             "company": {
-                "alt": "",
-                "img": ""
+                "alt": "lolxd",
+                "src": "/assets/imgs/451593.jpg"
             },
             "list": [
                 "Coded using HTML, CSS and JavaScript to develop features for both mobile and desktop platforms.",
@@ -59,8 +59,8 @@
                 "end": "Current"
             },
             "image": {
-                "alt": "",
-                "src": ""
+                "alt": "lolxd",
+                "src": "/assets/imgs/451593.jpg"
             },
             "description": "Detail oriented fullstack developer with an eye for design and some freelance experience. I’m seeking a position with a company where I can provide value through the use of my skills in coding, troubleshooting complex problems and assisting in the timely completion of projects."
         }
@@ -103,8 +103,8 @@
         },
         {
             "image": {
-                "alt": "",
-                "src": ""
+                "alt": "lolxd",
+                "src": "/assets/imgs/451593.jpg"
             },
             "name": "React.js"
         }
@@ -119,8 +119,8 @@
                 "website": ""
             },
             "image": {
-                "alt": "",
-                "src": ""
+                "alt": "lolxd",
+                "src": "/assets/imgs/1.png"
             }
         },
         {
@@ -132,8 +132,8 @@
                 "website": ""
             },
             "image": {
-                "alt": "",
-                "src": ""
+                "alt": "lolxd",
+                "src": "/assets/imgs/1.png"
             }
         }
     ]

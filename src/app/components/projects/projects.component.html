@@ -12,12 +12,12 @@
     </div>
     <div cdkDropList (cdkDropListDropped)="drop($event)">
         <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let project of projectsData" cdkDrag [cdkDragDisabled]="!isEdit">
-            <div class="row mb-3">
-                <div class="col-12 col-sm mb-2 mb-sm-0">
-                    <img class="w-100 h-100" src={{project.image.src}} width="350" height="167"
+            <div class="row mb-3 m-0">
+                <div class="col-12 col-md mb-2 mb-md-0 p-0 me-md-3 project-img-container">
+                    <img class="project-img" src={{project.image.src}}
                         alt={{project.image.alt}}>
                 </div>
-                <div class="col px-sm-0">
+                <div class="col px-0">
                     <h5 class="fw-bold">{{project.title}}</h5>
                     <h6 class="">{{project.stacc}}</h6>
                     <p class="">{{project.about}}</p>
