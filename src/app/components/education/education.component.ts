@@ -11,6 +11,7 @@ export class EducationComponent implements OnInit {
   educationData:any;
   isAdd:boolean=false;
   isEdit:boolean=false;
+  isEditItem:boolean=false;
   constructor(private educationServ : PortfolioService) { }
 
   ngOnInit(): void {
@@ -29,6 +30,13 @@ export class EducationComponent implements OnInit {
 
   drop(event: CdkDragDrop<object[]>) {
     moveItemInArray(this.educationData, event.previousIndex, event.currentIndex);
+  }
+
+  handleClick(){
+    if(!this.isEdit){
+      return 
+    }
+    console.log("clicked registered")
   }
 
 }

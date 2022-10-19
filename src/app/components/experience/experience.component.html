@@ -15,6 +15,7 @@
             <div class="col mb-4">
                 <div class="row p-0 m-0 mb-2 mb-md-1">
                     <div class="col-auto p-0 component-image-container" cdkDragHandle>
+                        <div class="arrows-move-container fs-1" *ngIf="isEdit"><i class="bi bi-arrows-move"></i></div>
                         <img class="component-image" src={{experience.company.src}} alt={{experience.company.alt}}>
                     </div>
                     <div class="col">

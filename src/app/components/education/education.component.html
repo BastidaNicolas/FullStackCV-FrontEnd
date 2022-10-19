@@ -2,7 +2,7 @@
     <div class="mb-4 d-flex justify-content-between">
         <h4 class="fw-bold">Education</h4>
         <div class="h-full d-flex align-items-center" *ngIf="isEdit">
-            <button class="btn p-0 border-0 fs-4 text me-3" (click)="handleAdd() " data-bs-toggle="modal" data-bs-target="#educationModal"><i class="bi bi-plus-square"></i></button>
+            <button class="btn p-0 border-0 fs-4 text me-3" (click)="handleAdd()" data-bs-toggle="modal" data-bs-target="#educationModal"><i class="bi bi-plus-square"></i></button>
             <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()"><i
                     class="bi bi-check-square"></i></button>
         </div>
@@ -10,10 +10,11 @@
                 class="bi bi-pencil-square"></i></button>
     </div>
     <div cdkDropList (cdkDropListDropped)="drop($event)" >
-        <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let education of educationData" cdkDrag [cdkDragDisabled]="!isEdit">
+        <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let education of educationData" cdkDrag [cdkDragDisabled]="!isEdit" (click)="handleClick()">
             <div class="col mb-3">
                 <div class="row mb-3 mb-md-1 mx-0">
                     <div class="col-auto p-0 component-image-container" cdkDragHandle>
+                        <div class="arrows-move-container fs-1" *ngIf="isEdit"><i class="bi bi-arrows-move"></i></div>
                         <img class="component-image" src={{education.image.src}} alt={{education.image.alt}}>
                     </div>
                     <div class="col">

@@ -1,6 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../node_modules/bootstrap-icons/font/bootstrap-icons';
 
-body{
+body {
     overflow-x: hidden;
+}
+
+
+.component-image-container {
+    background-color: red;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .arrows-move-container {
+        position: absolute;
+        z-index: 100;
+        background-color: rgba(255, 255, 255, 0.3);
+        color: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .component-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }

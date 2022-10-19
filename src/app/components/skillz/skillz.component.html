@@ -12,13 +12,16 @@
     </div>
     <div class="d-flex flex-wrap" cdkDropListGroup>
         <ng-container class="" *ngFor="let skill of skills; let i=index">
-            <div class="mb-4 me-4 ms-0" style="width: 170px;height: 51px;" cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="{item:skill,index:i}" (cdkDropListDropped)="drop($event)">
+            <div class="mb-4 me-4 ms-0" style="width: 170px;height: 51px;" cdkDropList
+                cdkDropListOrientation="horizontal" [cdkDropListData]="{item:skill,index:i}"
+                (cdkDropListDropped)="drop($event)">
                 <div cdkDrag [cdkDragDisabled]="!isEdit">
                     <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
                     <div class="d-flex align-items-center" [ngClass]="{'hover': isEdit}">
-                        <div class="skill-img-container" cdkDragHandle>
-                            <img class="skill-img" src={{skill.image.src}}
-                                alt={{skill.image.alt}}>
+                        <div class="component-image-container" cdkDragHandle>
+                            <div class="arrows-move-container fs-1" *ngIf="isEdit"><i class="bi bi-arrows-move"></i>
+                            </div>
+                            <img class="component-image" src={{skill.image.src}} alt={{skill.image.alt}}>
                         </div>
                         <div class="ms-3">
                             <span class="fw-bold">

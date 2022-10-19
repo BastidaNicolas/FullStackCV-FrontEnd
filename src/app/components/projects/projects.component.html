@@ -13,8 +13,10 @@
     <div cdkDropList (cdkDropListDropped)="drop($event)">
         <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let project of projectsData" cdkDrag [cdkDragDisabled]="!isEdit">
             <div class="row mb-3 m-0">
-                <div class="col-12 col-md mb-2 mb-md-0 p-0 me-md-3 project-img-container" cdkDragHandle>
-                    <img class="project-img" src={{project.image.src}}
+                <div class="col-12 col-md mb-2 mb-md-0 p-0 me-md-3 component-image-container" cdkDragHandle>
+                    <div class="arrows-move-container fs-1" *ngIf="isEdit"><i class="bi bi-arrows-move"></i>
+                    </div>
+                    <img class="component-image" src={{project.image.src}}
                         alt={{project.image.alt}}>
                 </div>
                 <div class="col px-0">
