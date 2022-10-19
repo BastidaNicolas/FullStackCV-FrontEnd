@@ -36,7 +36,8 @@ export class EducationComponent implements OnInit {
     if(!this.isEdit){
       return 
     }
-    console.log("clicked registered")
+    this.isEditItem = !this.isEditItem
+    console.log(this.isEditItem)
   }
 
 }

@@ -10,8 +10,8 @@
                 class="bi bi-pencil-square"></i></button>
     </div>
     <div cdkDropList (cdkDropListDropped)="drop($event)" >
-        <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let education of educationData" cdkDrag [cdkDragDisabled]="!isEdit" (click)="handleClick()">
-            <div class="col mb-3">
+        <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let education of educationData" cdkDrag [cdkDragDisabled]="!isEdit">
+            <div class="col mb-3" (click)="handleClick()" data-bs-toggle="modal" data-bs-target="#lol">
                 <div class="row mb-3 mb-md-1 mx-0">
                     <div class="col-auto p-0 component-image-container" cdkDragHandle>
                         <div class="arrows-move-container fs-1" *ngIf="isEdit"><i class="bi bi-arrows-move"></i></div>
@@ -34,8 +34,8 @@
                     </div>
                 </div>
             </div>
-
+            <app-education-module modalId="lol" *ngIf="isEdit" [name]="education.title" [about]="education.description" initDate="2013-01-08" [endDate]="education.time.end"></app-education-module>
         </div>
     </div>
 </div>
-<app-education-module></app-education-module>
+<app-education-module modalId="educationModal" ></app-education-module>
