@@ -18,4 +18,5 @@
         </div>
     </div>
 </div>
-<app-profile-module></app-profile-module>
+<app-about [about]="headerData.about"></app-about>
+<app-profile-module [fullName]="headerData.name" [jobTitle]="headerData.ocupation" [about]="headerData.about" [links]="headerData.social"></app-profile-module>

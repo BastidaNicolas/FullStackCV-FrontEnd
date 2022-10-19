@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/services/portfolio.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -7,14 +6,13 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-  about:any;
-  constructor(private aboutServ:PortfolioService) { }
+
+  @Input() about:string = ''
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.aboutServ.getData()
-    .subscribe((data) => {
-      this.about = data.about
-    })
+    
   }
 
 }

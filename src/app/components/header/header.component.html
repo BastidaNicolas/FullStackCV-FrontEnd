@@ -47,10 +47,10 @@
             </div>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body mh-100 overflow-auto pb-5">
+        <div class="offcanvas-body mh-100 h-100 overflow-auto pb-5">
             <div class="mb-5">
-                <ul class="list-group" *ngFor="let social of socialLinks">
-                    <li class="list-group-item"><a class="fs-3 text-dark" href={{social.link}}><i class={{social.icon}}></i> {{social.name}}</a></li>
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let social of socialLinks"><a class="fs-3 text-dark" href={{social.link}}><i class={{social.icon}}></i> {{social.name}}</a></li>
                 </ul>
             </div>
         </div>

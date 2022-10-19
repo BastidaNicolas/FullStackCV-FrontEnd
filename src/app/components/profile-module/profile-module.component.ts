@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-profile-module',
@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileModuleComponent implements OnInit {
   addLink:boolean=false;
+
+  @Input() fullName:string = ''
+  @Input() jobTitle:string = ''
+  @Input() about:string = ''
+  @Input() links:Array<any> = []
+
   constructor() { }
 
   ngOnInit(): void {
