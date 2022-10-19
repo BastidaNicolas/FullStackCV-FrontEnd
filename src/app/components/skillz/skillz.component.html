@@ -16,7 +16,7 @@
                 <div cdkDrag [cdkDragDisabled]="!isEdit">
                     <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
                     <div class="d-flex align-items-center" [ngClass]="{'hover': isEdit}">
-                        <div class="skill-img-container">
+                        <div class="skill-img-container" cdkDragHandle>
                             <img class="skill-img" src={{skill.image.src}}
                                 alt={{skill.image.alt}}>
                         </div>

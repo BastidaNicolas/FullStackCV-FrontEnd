@@ -13,7 +13,7 @@
         <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let education of educationData" cdkDrag [cdkDragDisabled]="!isEdit">
             <div class="col mb-3">
                 <div class="row mb-3 mb-md-1 mx-0">
-                    <div class="col-auto p-0 component-image-container">
+                    <div class="col-auto p-0 component-image-container" cdkDragHandle>
                         <img class="component-image" src={{education.image.src}} alt={{education.image.alt}}>
                     </div>
                     <div class="col">

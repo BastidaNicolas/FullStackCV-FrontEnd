@@ -13,7 +13,7 @@
     <div cdkDropList (cdkDropListDropped)="drop($event)">
         <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let project of projectsData" cdkDrag [cdkDragDisabled]="!isEdit">
             <div class="row mb-3 m-0">
-                <div class="col-12 col-md mb-2 mb-md-0 p-0 me-md-3 project-img-container">
+                <div class="col-12 col-md mb-2 mb-md-0 p-0 me-md-3 project-img-container" cdkDragHandle>
                     <img class="project-img" src={{project.image.src}}
                         alt={{project.image.alt}}>
                 </div>
