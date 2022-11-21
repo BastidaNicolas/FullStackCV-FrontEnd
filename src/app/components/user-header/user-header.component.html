@@ -1,22 +1,23 @@
 <div class="container position-relative" style="max-width: 812px;">
-    <button class="btn p-0 border-0 fs-4 text me-3 position-absolute top-100 end-0" style="z-index: 1;" data-bs-toggle="modal" data-bs-target="#profileModal"><i class="bi bi-pencil-square"></i></button>
+    <button class="btn p-0 border-0 fs-4 text me-3 position-absolute top-100 end-0" style="z-index: 1;"
+        data-bs-toggle="modal" data-bs-target="#profileModal"><i class="bi bi-pencil-square"></i></button>
     <div class="banner-container w-100 row-auto">
-        <img class="banner-image" src="/assets/imgs/1.png" alt="">
+        <img class="banner-image" src="{{'http://localhost:8080' + data.bannerImageUrl}}" alt="">
         <!-- <div class="w-100 bg-secondary" style="min-height: 250px; max-height: 250px; overflow: hidden;">
         </div> -->
     </div>
     <div class="container position-absolute top-100 start-50 translate-middle px-lg-4">
         <div class="row mb-3 ms-lg-3">
             <div class="col-12 col-sm-auto mb-3 mb-sm-0 p-0 profile-image-container me-lg-2">
-                <img class="profile-image"
-                    src="/assets/imgs/pepetest.png" alt="">
+                <img class="profile-image" src="{{'http://localhost:8080'+data.profileImageUrl}}" alt="">
             </div>
             <div class="col-12 col-sm align-self-end ps-sm-0">
-                <h2 class="mb-0 fw-bold">{{headerData.name}}</h2>
-                <h3 class="h6">{{headerData.ocupation}}</h3>
+                <h2 class="mb-0 fw-bold">{{data.name}}</h2>
+                <h3 class="h6">{{data.jobTitle}}</h3>
             </div>
         </div>
     </div>
 </div>
-<app-about [about]="headerData.about"></app-about>
-<app-profile-module [fullName]="headerData.name" [jobTitle]="headerData.ocupation" [about]="headerData.about" [links]="headerData.social"></app-profile-module>
+<app-about [about]="data.about"></app-about>
+<app-profile-module [fullName]="data.name" [jobTitle]="data.jobTitle" [about]="data.about"
+    [links]="data.links"></app-profile-module>

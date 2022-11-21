@@ -1,9 +1,9 @@
 <app-login-modal></app-login-modal>
-<app-header></app-header>
-<app-user-header></app-user-header>
+<app-header [links]="profileData.links"></app-header>
+<app-user-header [data]="profileData"></app-user-header>
+<app-skillz></app-skillz>
 <app-experience></app-experience>
 <app-projects></app-projects>
-<app-skillz></app-skillz>
 <app-education></app-education>
 <app-footer></app-footer>
 

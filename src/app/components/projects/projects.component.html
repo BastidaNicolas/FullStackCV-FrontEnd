@@ -12,24 +12,25 @@
     </div>
     <div cdkDropList (cdkDropListDropped)="drop($event)">
         <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let project of projectsData" cdkDrag [cdkDragDisabled]="!isEdit">
-            <div class="row mb-3 m-0">
+            <div class="row mb-3 m-0" (click)="handleClick()" data-bs-toggle="modal" [attr.data-bs-target]="'#modal'+project.id">
                 <div class="col-12 col-md mb-2 mb-md-0 p-0 me-md-3 component-image-container" cdkDragHandle>
                     <div class="arrows-move-container fs-1" *ngIf="isEdit"><i class="bi bi-arrows-move"></i>
                     </div>
-                    <img class="component-image" src={{project.image.src}}
-                        alt={{project.image.alt}}>
+                    <img class="component-image" src='{{"http://localhost:8080" + project.imageUrl}}'
+                        alt=''>
                 </div>
                 <div class="col px-0">
-                    <h5 class="fw-bold">{{project.title}}</h5>
-                    <h6 class="">{{project.stacc}}</h6>
+                    <h5 class="fw-bold">{{project.name}}</h5>
+                    <h6 class="text-capitalize">{{project.technologies | listTechnologies}}</h6>
                     <p class="">{{project.about}}</p>
                     <div class="row-auto">
-                        <a href={{project.links.github}} class="text-dark me-3">Github</a>
-                        <a href={{project.links.website}} class="text-dark">Website</a>
+                        <a href={{project.repoUrl}} class="text-dark me-3">Github</a>
+                        <a href={{project.pageUrl}} class="text-dark">Website</a>
                     </div>
                 </div>
             </div>
+            <app-projects-module modalId="modal{{project.id}}" *ngIf="isEdit" [name]="project.name" [about]="project.about" [repoLink]="project.repoUrl" [pageLink]="project.pageUrl" [techStack]="project.technologies" ></app-projects-module>
         </div>
     </div>
 </div>
-<app-projects-module></app-projects-module>
+<app-projects-module modalId="projectsModal"></app-projects-module>

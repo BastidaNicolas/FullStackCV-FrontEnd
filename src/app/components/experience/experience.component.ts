@@ -14,9 +14,10 @@ export class ExperienceComponent implements OnInit {
   constructor(private experienceServ:PortfolioService) { }
 
   ngOnInit(): void {
-    this.experienceServ.getData()
+    this.experienceServ.getExperience()
     .subscribe((data) => {
-      this.experienceData = data.experience;
+      console.log(data)
+      this.experienceData = data;
     })
   }
 
@@ -25,6 +26,12 @@ export class ExperienceComponent implements OnInit {
   }
   handleAdd(){
     this.isAdd = !this.isAdd
+  }
+
+  handleClick(){
+    if(!this.isEdit){
+      return 
+    }
   }
 
   drop(event: CdkDragDrop<object[]>) {

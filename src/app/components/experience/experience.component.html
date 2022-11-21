@@ -12,31 +12,33 @@
     </div>
     <div cdkDropList (cdkDropListDropped)="drop($event)" >
         <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let experience of experienceData" cdkDrag [cdkDragDisabled]="!isEdit">
-            <div class="col mb-4">
+            <div class="col mb-4" (click)="handleClick()" data-bs-toggle="modal" [attr.data-bs-target]="'#modal'+experience.id">
                 <div class="row p-0 m-0 mb-2 mb-md-1">
                     <div class="col-auto p-0 component-image-container" cdkDragHandle>
                         <div class="arrows-move-container fs-1" *ngIf="isEdit"><i class="bi bi-arrows-move"></i></div>
-                        <img class="component-image" src={{experience.company.src}} alt={{experience.company.alt}}>
+                        <img class="component-image" src='{{"http://localhost:8080" + experience.imageUrl}}' alt="">
                     </div>
                     <div class="col">
                         <div class="row">
-                            <h5 class="fw-bold">{{experience.title}}</h5>
+                            <h5 class="fw-bold text-capitalize">{{experience.jobTitle}}</h5>
                         </div>
                         <div class="row">
-                            <h6>{{experience.time.start}} - {{experience.time.end}}</h6>
+                            <h6 class="col-auto pe-0 text-capitalize">{{experience.companyName}}</h6>
+                            <h6 class="col-auto pe-0 text-secondary">{{experience.date.startDate | calcMonths: experience.date.endDate}} Months</h6>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-end p-0 m-0">
                     <div class="col col-sm-10 p-0">
-                        <ul class="list-group list-group-flush" *ngFor="let bullet of experience.list">
-                            <li class="list-group-item border-bottom bg-transparent px-0">{{bullet}}</li>
+                        <ul class="list-group list-group-flush" *ngFor="let description of experience.description">
+                            <li class="list-group-item border-bottom bg-transparent px-0">{{description.description}}</li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <app-experience-module modalId="modal{{experience.id}}" *ngIf="isEdit" [company]="experience.companyName" [jobTitle]="experience.title" [about]="experience.description" [initDate]="experience.date.startDate" [endDate]="experience.date.endDate"></app-experience-module>
         </div>
     </div>
 
 </div>
-<app-experience-module></app-experience-module>
+<app-experience-module modalId="experienceModal"></app-experience-module>

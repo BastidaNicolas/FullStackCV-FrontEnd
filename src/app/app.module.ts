@@ -18,6 +18,8 @@ import { ProfileModuleComponent } from './components/profile-module/profile-modu
 import { EducationModuleComponent } from './components/education-module/education-module.component';
 import { SkillsModuleComponent } from './components/skills-module/skills-module.component';
 import { ProjectsModuleComponent } from './components/projects-module/projects-module.component';
+import { ListTechnologiesPipe } from './components/projects/list-technologies.pipe';
+import { CalcMonthsPipe } from './components/experience/calc-months.pipe';
 
 const routes: Routes = []
 
@@ -38,6 +40,8 @@ const routes: Routes = []
     EducationModuleComponent,
     SkillsModuleComponent,
     ProjectsModuleComponent,
+    ListTechnologiesPipe,
+    CalcMonthsPipe,
   ],
   imports: [
     BrowserModule,

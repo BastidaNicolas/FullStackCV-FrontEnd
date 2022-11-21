@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-experience-module',
@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienceModuleComponent implements OnInit {
   addListItem:boolean=false;
+  @Input() modalId:string = ''
+  @Input() jobTitle:string = ''
+  @Input() company:string = ''
+  @Input() about:Array<any> = []
+  @Input() initDate:string = ''
+  @Input() endDate:string = ''
   constructor() { }
 
   ngOnInit(): void {

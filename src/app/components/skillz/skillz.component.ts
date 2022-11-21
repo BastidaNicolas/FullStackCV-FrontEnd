@@ -14,9 +14,9 @@ export class SkillzComponent implements OnInit {
   constructor(private skillsServ:PortfolioService) { }
 
   ngOnInit(): void {
-    this.skillsServ.getData()
+    this.skillsServ.getSkills()
     .subscribe((data)=>{
-      this.skills = data.skills;
+      this.skills = data;
     })
   }
 
@@ -26,6 +26,12 @@ export class SkillzComponent implements OnInit {
   }
   handleAdd(){
     this.isAdd = !this.isAdd
+  }
+
+  handleClick(){
+    if(!this.isEdit){
+      return 
+    }
   }
 
   drop(event: CdkDragDrop<any>) {

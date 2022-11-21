@@ -14,9 +14,9 @@ export class ProjectsComponent implements OnInit {
   constructor(private projectServ:PortfolioService) { }
 
   ngOnInit(): void {
-    this.projectServ.getData()
+    this.projectServ.getProjects()
     .subscribe((data) => {
-      this.projectsData = data.projects
+      this.projectsData = data
     })
   }
 
@@ -25,6 +25,12 @@ export class ProjectsComponent implements OnInit {
   }
   handleAdd(){
     this.isAdd = !this.isAdd
+  }
+
+  handleClick(){
+    if(!this.isEdit){
+      return 
+    }
   }
 
   drop(event: CdkDragDrop<object[]>) {

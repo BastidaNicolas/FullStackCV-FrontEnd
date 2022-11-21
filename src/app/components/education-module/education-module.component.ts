@@ -6,8 +6,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./education-module.component.scss']
 })
 export class EducationModuleComponent implements OnInit {
-
-
   @Input() modalId:string = ''
   @Input() name:string = ''
   @Input() about:string = ''

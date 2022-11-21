@@ -11,31 +11,32 @@
     </div>
     <div cdkDropList (cdkDropListDropped)="drop($event)" >
         <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let education of educationData" cdkDrag [cdkDragDisabled]="!isEdit">
-            <div class="col mb-3" (click)="handleClick()" data-bs-toggle="modal" data-bs-target="#lol">
+            <div class="col mb-3" (click)="handleClick()" data-bs-toggle="modal" [attr.data-bs-target]="'#modal'+education.id">
                 <div class="row mb-3 mb-md-1 mx-0">
                     <div class="col-auto p-0 component-image-container" cdkDragHandle>
                         <div class="arrows-move-container fs-1" *ngIf="isEdit"><i class="bi bi-arrows-move"></i></div>
-                        <img class="component-image" src={{education.image.src}} alt={{education.image.alt}}>
+                        <img class="component-image" src='{{"http://localhost:8080" + education.imageUrl}}' alt="">
                     </div>
                     <div class="col">
                         <div class="row">
-                            <h5 class="fw-bold">{{education.title}}</h5>
+                            <h5 class="fw-bold text-capitalize">{{education.title}}</h5>
                         </div>
                         <div class="row">
-                            <h6>{{education.time.start}} - {{education.time.end}}</h6>
+                            <h6 class="col-auto pe-0 text-capitalize">{{education.schoolName}}</h6>
+                            <h6 class="col-auto pe-0 text-secondary">{{displayDate(education.date.startDate, education.date.endDate)}}</h6>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-end mx-0">
                     <div class="col p-0 col-sm-10">
                         <p>
-                            {{education.description}}
+                            {{education.about}}
                         </p>
                     </div>
                 </div>
             </div>
-            <app-education-module modalId="lol" *ngIf="isEdit" [name]="education.title" [about]="education.description" initDate="2013-01-08" [endDate]="education.time.end"></app-education-module>
+            <app-education-module modalId="modal{{education.id}}" *ngIf="isEdit" [name]="education.title" [about]="education.about" [initDate]="education.date.startDate" [endDate]="education.date.endDate"></app-education-module>
         </div>
     </div>
 </div>
-<app-education-module modalId="educationModal" ></app-education-module>
+<app-education-module modalId="educationModal"></app-education-module>

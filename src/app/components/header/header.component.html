@@ -20,10 +20,9 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Socials
                             </button>
-                            <ul class="dropdown-menu rounded-0" aria-labelledby="btnGroupDrop1"
-                                *ngFor="let social of socialLinks">
-                                <li><a class="dropdown-item" href={{social.link}}><i class={{social.icon}}></i>
-                                        {{social.name}}</a></li>
+                            <ul class="dropdown-menu rounded-0" aria-labelledby="btnGroupDrop1">
+                                <li *ngFor="let link of links"><a class="dropdown-item" href={{link.url}}><i
+                                            class={{link.icon}}></i>{{link.name}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -39,18 +38,21 @@
             </div>
         </div>
     </div>
-    <div class="offcanvas mobile-menu offcanvas-end text-bg-primary" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas mobile-menu offcanvas-end text-bg-primary" tabindex="-1" id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <div class="col-auto ps-0">
                 <button type="button" data-bs-toggle="modal" data-bs-target="#loginModal"
                     class="btn btn-outline-light rounded-0 pt-1 pb-2 px-4">Login</button>
             </div>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
         </div>
         <div class="offcanvas-body mh-100 h-100 overflow-auto pb-5">
             <div class="mb-5">
                 <ul class="list-group">
-                    <li class="list-group-item" *ngFor="let social of socialLinks"><a class="fs-3 text-dark" href={{social.link}}><i class={{social.icon}}></i> {{social.name}}</a></li>
+                    <li class="list-group-item" *ngFor="let link of links"><a class="fs-3 text-dark"
+                            href={{link.url}}><i class={{link.icon}}></i> {{link.name}}</a></li>
                 </ul>
             </div>
         </div>
