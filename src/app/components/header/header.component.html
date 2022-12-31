@@ -21,8 +21,8 @@
                                 Socials
                             </button>
                             <ul class="dropdown-menu rounded-0" aria-labelledby="btnGroupDrop1">
-                                <li *ngFor="let link of links"><a class="dropdown-item" href={{link.url}}><i
-                                            class={{link.icon}}></i>{{link.name}}</a></li>
+                                <li *ngFor="let link of links"><a class="dropdown-item" href={{link.url}}
+                                        target="_blank"><i class={{link.icon}}></i>{{link.name}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
             <div class="mb-5">
                 <ul class="list-group">
                     <li class="list-group-item" *ngFor="let link of links"><a class="fs-3 text-dark"
-                            href={{link.url}}><i class={{link.icon}}></i> {{link.name}}</a></li>
+                            href={{link.url}} target="_blank"><i class={{link.icon}}></i> {{link.name}}</a></li>
                 </ul>
             </div>
         </div>

@@ -7,7 +7,7 @@
             <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()"><i
                     class="bi bi-check-square"></i></button>
         </div>
-        <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()" *ngIf="!isEdit"><i
+        <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()" *ngIf="!isEdit && isRoute.url === '/admin-panel'"><i
                 class="bi bi-pencil-square"></i></button>
     </div>
     <div cdkDropList (cdkDropListDropped)="drop($event)">
@@ -24,13 +24,13 @@
                     <h6 class="text-capitalize">{{project.technologies | listTechnologies}}</h6>
                     <p class="">{{project.about}}</p>
                     <div class="row-auto">
-                        <a href={{project.repoUrl}} class="text-dark me-3">Github</a>
-                        <a href={{project.pageUrl}} class="text-dark">Website</a>
+                        <a href={{project.repoUrl}} target="_blank" class="text-dark me-3">Github</a>
+                        <a href={{project.pageUrl}} target="_blank" class="text-dark">Website</a>
                     </div>
                 </div>
             </div>
-            <app-projects-module modalId="modal{{project.id}}" *ngIf="isEdit" [name]="project.name" [about]="project.about" [repoLink]="project.repoUrl" [pageLink]="project.pageUrl" [techStack]="project.technologies" ></app-projects-module>
+            <app-projects-module modalId="modal{{project.id}}" *ngIf="isEdit" [id]="project.id" [listPosition]="project.listPosition" [name]="project.name" [about]="project.about" [repoLink]="project.repoUrl" [pageLink]="project.pageUrl" [techStack]="project.technologies" (updateProjects)="onProjectUpdate($event)"></app-projects-module>
         </div>
     </div>
 </div>
-<app-projects-module modalId="projectsModal"></app-projects-module>
+<app-projects-module *ngIf="isRoute.url === '/admin-panel'" modalId="projectsModal" [listLength]="projectsData.length" (updateProjects)="onProjectUpdate($event)"></app-projects-module>

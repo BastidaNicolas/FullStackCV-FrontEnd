@@ -2,16 +2,19 @@
     <div class="mb-4 d-flex justify-content-between">
         <h4 class="fw-bold">Education</h4>
         <div class="h-full d-flex align-items-center" *ngIf="isEdit">
-            <button class="btn p-0 border-0 fs-4 text me-3" (click)="handleAdd()" data-bs-toggle="modal" data-bs-target="#educationModal"><i class="bi bi-plus-square"></i></button>
+            <button class="btn p-0 border-0 fs-4 text me-3" (click)="handleAdd()" data-bs-toggle="modal"
+                data-bs-target="#educationModal"><i class="bi bi-plus-square"></i></button>
             <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()"><i
                     class="bi bi-check-square"></i></button>
         </div>
-        <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()" *ngIf="!isEdit"><i
+        <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()" *ngIf="!isEdit && isRoute.url === '/admin-panel'"><i
                 class="bi bi-pencil-square"></i></button>
     </div>
-    <div cdkDropList (cdkDropListDropped)="drop($event)" >
-        <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let education of educationData" cdkDrag [cdkDragDisabled]="!isEdit">
-            <div class="col mb-3" (click)="handleClick()" data-bs-toggle="modal" [attr.data-bs-target]="'#modal'+education.id">
+    <div cdkDropList (cdkDropListDropped)="drop($event)">
+        <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let education of educationData" cdkDrag
+            [cdkDragDisabled]="!isEdit">
+            <div class="col mb-3" (click)="handleClick()" data-bs-toggle="modal"
+                [attr.data-bs-target]="'#modal'+education.id">
                 <div class="row mb-3 mb-md-1 mx-0">
                     <div class="col-auto p-0 component-image-container" cdkDragHandle>
                         <div class="arrows-move-container fs-1" *ngIf="isEdit"><i class="bi bi-arrows-move"></i></div>
@@ -23,7 +26,8 @@
                         </div>
                         <div class="row">
                             <h6 class="col-auto pe-0 text-capitalize">{{education.schoolName}}</h6>
-                            <h6 class="col-auto pe-0 text-secondary">{{displayDate(education.date.startDate, education.date.endDate)}}</h6>
+                            <h6 class="col-auto pe-0 text-secondary">{{displayDate(education.date.startDate,
+                                education.date.endDate)}}</h6>
                         </div>
                     </div>
                 </div>
@@ -35,8 +39,11 @@
                     </div>
                 </div>
             </div>
-            <app-education-module modalId="modal{{education.id}}" *ngIf="isEdit" [name]="education.title" [about]="education.about" [initDate]="education.date.startDate" [endDate]="education.date.endDate"></app-education-module>
+            <app-education-module modalId="modal{{education.id}}" *ngIf="isEdit" [name]="education.schoolName" [title]="education.title"
+                [about]="education.about" [initDate]="education.date.startDate" [endDate]="education.date.endDate"
+                [id]="education.id" [listPosition]="education.listPosition" (updateEducation)="onEducationUpdate($event)">
+            </app-education-module>
         </div>
     </div>
 </div>
-<app-education-module modalId="educationModal"></app-education-module>
+<app-education-module *ngIf="isRoute.url === '/admin-panel'" modalId="educationModal" [listIndex]="educationData.length" (updateEducation)="onEducationUpdate($event)"></app-education-module>

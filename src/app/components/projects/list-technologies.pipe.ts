@@ -5,17 +5,18 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ListTechnologiesPipe implements PipeTransform {
 
-  transform(techList: Array<any>): unknown {
+  transform(techList: string): unknown {
     return this.listTech(techList);
   }
 
-  listTech(techList:Array<any>){
+  listTech(techList:string){
+    let technologies = JSON.parse(techList);
     let finalString = '';
-    techList.map((tech, index) => {
-      if(index == techList.length-1){
-        finalString += tech.name
+    technologies.map((tech:string, index:number) => {
+      if(index == technologies.length-1){
+        finalString += tech
       }else{
-        finalString += tech.name+" - "
+        finalString += tech+" - "
       }
        
     })

@@ -8,29 +8,36 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="formFileSm" class="form-label fw-bold">Company Logo (5mb max)</label>
-                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                    <input class="form-control form-control-sm" id="formFileSm" type="file" #imageInput>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label fw-bold">Name</label>
-                    <input class="form-control form-control-sm" type="text" placeholder="Argentina Programa (Full Stack Developer)"
-                        aria-label="name input" [value]="name">
+                    <input class="form-control form-control-sm" type="text" placeholder="Argentina Programa"
+                        aria-label="name input" [value]="name" #nameInput>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label fw-bold">Title</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="Full Stack Developer"
+                        aria-label="name input" [value]="title" #titleInput>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label fw-bold">Education Time</label>
                     <div class="d-flex">
-                        <input class="form-control form-control-sm" type="date" aria-label="start date input" [value]="initDate">
+                        <input class="form-control form-control-sm" type="date" aria-label="start date input" [value]="initDate" #startDateInput>
                         <p class="m-0 px-2">-</p>
-                        <input class="form-control form-control-sm" type="date" aria-label="end date input" [value]="endDate">
+                        <input class="form-control form-control-sm" type="date" aria-label="end date input" [value]="endDate" #endDateInput>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label fw-bold">About</label>
-                    <textarea class="form-control" id="about" rows="3" [value]="about"></textarea>
+                    <textarea class="form-control" id="about" rows="3" [value]="about" #aboutInput></textarea>
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-danger rounded-0 me-auto" *ngIf="id" data-bs-dismiss="modal" (click)="handleDeleteEducation()">Delete</button>
+
                 <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary rounded-0">Save</button>
+                <button type="button" class="btn btn-primary rounded-0" (click)="saveEducaction(imageInput.files, nameInput.value, titleInput.value, startDateInput.value, endDateInput.value, aboutInput.value)" data-bs-dismiss="modal">Save</button>
             </div>
         </div>
     </div>

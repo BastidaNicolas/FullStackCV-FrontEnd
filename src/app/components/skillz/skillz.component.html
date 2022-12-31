@@ -1,13 +1,13 @@
 <div class="container mb-5" style="max-width: 812px;">
     <div class="mb-4 d-flex justify-content-between">
-        <h4 class="fw-bold">Hard & Soft Skills</h4>
+        <h4 class="fw-bold">Skills</h4>
         <div class="h-full d-flex align-items-center" *ngIf="isEdit">
             <button class="btn p-0 border-0 fs-4 text me-3" (click)="handleAdd() " data-bs-toggle="modal"
                 data-bs-target="#skillsModal"><i class="bi bi-plus-square"></i></button>
             <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()"><i
                     class="bi bi-check-square"></i></button>
         </div>
-        <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()" *ngIf="!isEdit"><i
+        <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()" *ngIf="!isEdit && isRoute.url === '/admin-panel'"><i
                 class="bi bi-pencil-square"></i></button>
     </div>
     <div class="d-flex flex-wrap" cdkDropListGroup>
@@ -31,8 +31,8 @@
                     </div>
                 </div>
             </div>
-            <app-skills-module modalId="modal{{skill.id}}" *ngIf="isEdit" [name]="skill.name"></app-skills-module>
+            <app-skills-module modalId="modal{{skill.id}}" *ngIf="isEdit" [id]="skill.id" [name]="skill.name" [listPosition]="skill.listPosition" (updateList)="onListChange($event)"></app-skills-module>
         </ng-container>
     </div>
 </div>
-<app-skills-module modalId="skillsModal"></app-skills-module>
+<app-skills-module *ngIf="isRoute.url === '/admin-panel'" modalId="skillsModal" [listLength]="skills.length" (updateList)="onListChange($event)"></app-skills-module>

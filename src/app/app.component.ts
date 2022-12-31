@@ -19,4 +19,8 @@ export class AppComponent {
       this.profileData = data;
     })
   }
+
+  onProfileUpdate(event:any){
+    this.profileData = event;
+  }
 }

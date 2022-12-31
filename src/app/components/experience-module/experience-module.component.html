@@ -8,24 +8,26 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="formFileSm" class="form-label fw-bold">Company Logo (5mb max)</label>
-                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                    <input class="form-control form-control-sm" id="formFileSm" type="file" #imageInput>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label fw-bold">Job Title</label>
                     <input class="form-control form-control-sm" type="text" placeholder="FullDev.net"
-                        aria-label="name input" [value]="jobTitle">
+                        aria-label="name input" [value]="jobTitle" #jobTitleInput>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label fw-bold">Company</label>
                     <input class="form-control form-control-sm" type="text" placeholder="FullDev.net"
-                        aria-label="name input" [value]="company">
+                        aria-label="name input" [value]="company" #companyNameInput>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label fw-bold">Work Time</label>
                     <div class="d-flex">
-                        <input class="form-control form-control-sm" type="date" aria-label="start date input" [value]="initDate">
+                        <input class="form-control form-control-sm" type="date" aria-label="start date input"
+                            [value]="initDate" #startDateInput>
                         <p class="m-0 px-2">-</p>
-                        <input class="form-control form-control-sm" type="date" aria-label="end date input" [value]="endDate">
+                        <input class="form-control form-control-sm" type="date" aria-label="end date input"
+                            [value]="endDate" #endDateInput>
                     </div>
                 </div>
                 <div class="">
@@ -40,23 +42,27 @@
                     <div class="mb-3" *ngIf="addListItem">
                         <div class="mb-2">
                             <input class="form-control form-control-sm" type="text"
-                                placeholder="Worked with clients 1 on 1" aria-label="name input">
+                                placeholder="Worked with clients 1 on 1" aria-label="name input" #descriptionInput>
                         </div>
-                        <button class="btn btn-primary rounded-0 btn-sm" type="submit">Add</button>
+                        <button class="btn btn-primary rounded-0 btn-sm" type="submit"
+                            (click)="handleAddDesc(descriptionInput.value)">Add</button>
                     </div>
                     <ul class="ps-3">
                         <li class="" *ngFor="let item of about">
                             <div class="row">
-                                <p class="col m-0">{{item.description}}</p><button
-                                    class="btn col-1 p-0 border-0"><i class="bi bi-trash-fill"></i></button>
+                                <p class="col m-0">{{item.description}}</p><button (click)="handleDeleteDesc(item.description)" class="btn col-1 p-0 border-0"><i
+                                        class="bi bi-trash-fill"></i></button>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-danger rounded-0 me-auto" *ngIf="id" data-bs-dismiss="modal" (click)="handleDeleteExperience()">Delete</button>
+
                 <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary rounded-0">Save</button>
+                <button type="button" class="btn btn-primary rounded-0"
+                    (click)="saveExperience(imageInput.files, jobTitleInput.value, companyNameInput.value, startDateInput.value, endDateInput.value)" data-bs-dismiss="modal">Save</button>
             </div>
         </div>
     </div>

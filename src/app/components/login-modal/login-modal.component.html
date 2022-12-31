@@ -15,19 +15,22 @@
                 <div class="mb-3">
                     <label for="formGroupExampleInput2" class="form-label fw-bold">Password</label>
                     <input type="text" class="form-control rounded-0" id="formGroupExampleInput2" placeholder="Password">
-                    <button type="button" class="btn btn-link p-0 fs-6 text-decoration-none" (click)="setForgotPass(true)">Forgot my
-                        password</button>
+                    <!-- <button type="button" class="btn btn-link p-0 fs-6 text-decoration-none" (click)="setForgotPass(true)">Forgot my
+                        password</button> -->
                 </div>
                 <div class="mb-3 text-muted d-flex justify-content-evenly">
                     <span>Username: user1</span>
                     <span>Password: user1</span>
                 </div>
-                <div class="mb-2 text-center">
+                <div class="mb-3 text-muted d-flex text-center">
+                    <span>This account allows you to have an admin view but wont allow you to edit the page.</span>
+                </div>
+                <!-- <div class="mb-2 text-center">
                     <span class="d-block" >Don't have an account?</span>
                     <button type="button" class="btn btn-link p-0 fs-6" (click)="setRegister(true)">Register</button>
-                </div>
+                </div> -->
             </div>
-            <div class="modal-body" *ngIf="register">
+            <!-- <div class="modal-body" *ngIf="register">
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label fw-bold">Username</label>
                     <input type="text" class="form-control rounded-0" id="formGroupExampleInput" placeholder="Username">
@@ -44,14 +47,14 @@
                     <label for="formGroupExampleInput2" class="form-label fw-bold">E-mail</label>
                     <input type="text" class="form-control rounded-0" id="formGroupExampleInput2" placeholder="E-mail">
                 </div>
-            </div>
-            <div class="modal-body" *ngIf="forgotPass">
+            </div> -->
+            <!-- <div class="modal-body" *ngIf="forgotPass">
                 <div class="mb-3">
                     <label for="formGroupExampleInput2" class="form-label fw-bold">E-mail</label>
                     <input type="text" class="form-control rounded-0" id="formGroupExampleInput2" placeholder="E-mail">
                     <span class="text-muted mt-1">Enter your account email, you'll get sent a password reset thingy</span>
                 </div>
-            </div>
+            </div> -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal" *ngIf="!register && !forgotPass">Close</button>
                 <button type="button" class="btn btn-secondary rounded-0" (click)="setDefault(0)" *ngIf="register || forgotPass">Back</button>

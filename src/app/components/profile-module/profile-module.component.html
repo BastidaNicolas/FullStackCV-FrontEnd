@@ -8,29 +8,31 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="formFileSm" class="form-label fw-bold">Profile Image (5mb max)</label>
-                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                    <input class="form-control form-control-sm" id="formFileSm" type="file" #profileImg accept="image/*">
                 </div>
                 <div class="mb-3">
                     <label for="formFileSm" class="form-label fw-bold">Banner Image (5mb max)</label>
-                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                    <input class="form-control form-control-sm" id="formFileSm" type="file" #bannerImg accept="image/*">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label fw-bold">Full Name</label>
-                    <input class="form-control form-control-sm" type="text" placeholder="Ernesto Pedrastra" aria-label="name input" [value]="fullName">
+                    <input class="form-control form-control-sm" type="text" placeholder="Ernesto Pedrastra"
+                        aria-label="name input" [value]="fullName" #fullNameInput>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label fw-bold">Job Title</label>
-                    <input class="form-control form-control-sm" type="text" placeholder="Sr. Pancake" aria-label="name input" [value]="jobTitle">
+                    <input class="form-control form-control-sm" type="text" placeholder="Sr. Pancake"
+                        aria-label="name input" [value]="jobTitle" #jobTitleInput>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label fw-bold">About</label>
-                    <textarea class="form-control" id="about" rows="3" [value]="about"></textarea>
+                    <textarea class="form-control" id="about" rows="3" [value]="about" #aboutInput></textarea>
                 </div>
                 <div class="">
                     <div class="row">
                         <h6 class="col fw-bold m-0">Social Links</h6>
                         <div class="col-2 text-end">
-                            <button (click)="handleAddLink()" class="btn p-0 border-0 fs-5">
+                            <button (click)="handleOpenAddLink()" class="btn p-0 border-0 fs-5">
                                 <i [ngClass]="{'bi bi-dash-square':addLink,'bi bi-plus-square':!addLink}"></i>
                             </button>
                         </div>
@@ -38,28 +40,37 @@
                     <div class="mb-3" *ngIf="addLink">
                         <div class="mb-2">
                             <label for="exampleInputEmail1" class="form-label">Name</label>
-                            <input class="form-control form-control-sm" type="text" placeholder="Github" aria-label="name input">
+                            <input class="form-control form-control-sm" type="text" placeholder="Github"
+                                aria-label="name input" #linkName>
                         </div>
                         <div class="mb-2">
                             <label for="exampleInputEmail1" class="form-label">Link</label>
-                            <input class="form-control form-control-sm" type="text" placeholder="https://github.com" aria-label="name input">
+                            <input class="form-control form-control-sm" type="text" placeholder="https://github.com"
+                                aria-label="name input" #linkUrl>
                         </div>
                         <div class="mb-2">
-                            <label for="exampleInputEmail1" class="form-label">Icon (<a href="https://icons.getbootstrap.com/" target="_blank">copy classes from here</a>)</label>
-                            <input class="form-control form-control-sm" type="text" placeholder="bi bi-github" aria-label="name input">
+                            <label for="exampleInputEmail1" class="form-label">Icon (<a
+                                    href="https://icons.getbootstrap.com/" target="_blank">copy classes from
+                                    here</a>)</label>
+                            <input class="form-control form-control-sm" type="text" placeholder="bi bi-github"
+                                aria-label="name input" #linkIcon>
                         </div>
-                        <button class="btn btn-primary rounded-0 btn-sm" type="submit">Add</button>
+                        <button class="btn btn-primary rounded-0 btn-sm" type="submit"
+                            (click)="handleAddLink(linkName.value, linkUrl.value, linkIcon.value)">Add</button>
                     </div>
                     <ul class="p-0">
                         <li class="row my-2" *ngFor="let link of links">
-                            <i class="col-1" [ngClass]="link.icon"></i><p class="col m-0 p-0">{{link.name}}</p><button class="btn col-1 p-0 border-0"><i class="bi bi-trash-fill"></i></button>
+                            <i class="col-1" [ngClass]="link.icon"></i>
+                            <p class="col m-0 p-0">{{link.name}}</p><button class="btn col-1 p-0 border-0"
+                                (click)="handleRemoveLink(link.name)"><i class="bi bi-trash-fill"></i></button>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary rounded-0">Save</button>
+                <button type="button" class="btn btn-primary rounded-0" data-bs-dismiss="modal"
+                    (click)="handleSaveProfile(fullNameInput.value, jobTitleInput.value, aboutInput.value, profileImg.files, bannerImg.files)">Save</button>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <app-login-modal></app-login-modal>
 <app-header [links]="profileData.links"></app-header>
-<app-user-header [data]="profileData"></app-user-header>
+<app-user-header [data]="profileData" (profileUpdate)="onProfileUpdate($event)"></app-user-header>
 <app-skillz></app-skillz>
 <app-experience></app-experience>
 <app-projects></app-projects>

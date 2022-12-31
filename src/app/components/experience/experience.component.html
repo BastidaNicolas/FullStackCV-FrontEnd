@@ -1,4 +1,4 @@
-<div class="container mb-5" style="max-width: 812px;">
+<div class="container mb-5" style="max-width: 812px;" *ngIf="experienceData.length || isRoute.url === '/admin-panel'">
     <div class="mb-4 d-flex justify-content-between">
         <h4 class="fw-bold">Experience</h4>
         <div class="h-full d-flex align-items-center" *ngIf="isEdit">
@@ -7,12 +7,14 @@
             <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()"><i
                     class="bi bi-check-square"></i></button>
         </div>
-        <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()" *ngIf="!isEdit"><i
+        <button class="btn p-0 border-0 fs-4 text" (click)="handleEdit()" *ngIf="!isEdit && isRoute.url === '/admin-panel'"><i
                 class="bi bi-pencil-square"></i></button>
     </div>
-    <div cdkDropList (cdkDropListDropped)="drop($event)" >
-        <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let experience of experienceData" cdkDrag [cdkDragDisabled]="!isEdit">
-            <div class="col mb-4" (click)="handleClick()" data-bs-toggle="modal" [attr.data-bs-target]="'#modal'+experience.id">
+    <div cdkDropList (cdkDropListDropped)="drop($event)">
+        <div class="column" [ngClass]="{'hover': isEdit}" *ngFor="let experience of experienceData" cdkDrag
+            [cdkDragDisabled]="!isEdit">
+            <div class="col mb-4" (click)="handleClick()" data-bs-toggle="modal"
+                [attr.data-bs-target]="'#modal'+experience.id">
                 <div class="row p-0 m-0 mb-2 mb-md-1">
                     <div class="col-auto p-0 component-image-container" cdkDragHandle>
                         <div class="arrows-move-container fs-1" *ngIf="isEdit"><i class="bi bi-arrows-move"></i></div>
@@ -24,21 +26,26 @@
                         </div>
                         <div class="row">
                             <h6 class="col-auto pe-0 text-capitalize">{{experience.companyName}}</h6>
-                            <h6 class="col-auto pe-0 text-secondary">{{experience.date.startDate | calcMonths: experience.date.endDate}} Months</h6>
+                            <h6 class="col-auto pe-0 text-secondary">{{experience.date.startDate | calcMonths:
+                                experience.date.endDate}} Months</h6>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-end p-0 m-0">
                     <div class="col col-sm-10 p-0">
                         <ul class="list-group list-group-flush" *ngFor="let description of experience.description">
-                            <li class="list-group-item border-bottom bg-transparent px-0">{{description.description}}</li>
+                            <li class="list-group-item border-bottom bg-transparent px-0">{{description.description}}
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <app-experience-module modalId="modal{{experience.id}}" *ngIf="isEdit" [company]="experience.companyName" [jobTitle]="experience.title" [about]="experience.description" [initDate]="experience.date.startDate" [endDate]="experience.date.endDate"></app-experience-module>
+            <app-experience-module modalId="modal{{experience.id}}" *ngIf="isEdit" [id]="experience.id"
+                [listPosition]="experience.listPosition" [company]="experience.companyName"
+                [jobTitle]="experience.jobTitle" [about]="experience.description" [initDate]="experience.date.startDate"
+                [endDate]="experience.date.endDate" (updateExperience)="onExperienceUpdate($event)"></app-experience-module>
         </div>
     </div>
 
 </div>
-<app-experience-module modalId="experienceModal"></app-experience-module>
+<app-experience-module *ngIf="isRoute.url === '/admin-panel'" modalId="experienceModal" [listLength]="experienceData.length" (updateExperience)="onExperienceUpdate($event)"></app-experience-module>

@@ -1,5 +1,5 @@
 <div class="container position-relative" style="max-width: 812px;">
-    <button class="btn p-0 border-0 fs-4 text me-3 position-absolute top-100 end-0" style="z-index: 1;"
+    <button *ngIf="isRoute.url === '/admin-panel'" class="btn p-0 border-0 fs-4 text me-3 position-absolute top-100 end-0" style="z-index: 1;"
         data-bs-toggle="modal" data-bs-target="#profileModal"><i class="bi bi-pencil-square"></i></button>
     <div class="banner-container w-100 row-auto">
         <img class="banner-image" src="{{'http://localhost:8080' + data.bannerImageUrl}}" alt="">
@@ -19,5 +19,5 @@
     </div>
 </div>
 <app-about [about]="data.about"></app-about>
-<app-profile-module [fullName]="data.name" [jobTitle]="data.jobTitle" [about]="data.about"
-    [links]="data.links"></app-profile-module>
+<app-profile-module *ngIf="isRoute.url === '/admin-panel'" [profileId]="data.id" [fullName]="data.name" [jobTitle]="data.jobTitle" [about]="data.about"
+    [links]="data.links" (profileUpdate)="onProfileUpdate($event)"></app-profile-module>

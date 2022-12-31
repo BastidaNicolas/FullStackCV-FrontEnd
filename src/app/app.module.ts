@@ -21,7 +21,11 @@ import { ProjectsModuleComponent } from './components/projects-module/projects-m
 import { ListTechnologiesPipe } from './components/projects/list-technologies.pipe';
 import { CalcMonthsPipe } from './components/experience/calc-months.pipe';
 
-const routes: Routes = []
+const routes: Routes = [
+  {path:'', component: AppComponent},
+  {path:'admin-panel', component: AppComponent},
+  {path:'**', redirectTo:''}
+]
 
 @NgModule({
   declarations: [
