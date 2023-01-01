@@ -20,11 +20,24 @@ import { SkillsModuleComponent } from './components/skills-module/skills-module.
 import { ProjectsModuleComponent } from './components/projects-module/projects-module.component';
 import { ListTechnologiesPipe } from './components/projects/list-technologies.pipe';
 import { CalcMonthsPipe } from './components/experience/calc-months.pipe';
+import { UserGuardGuard } from './user-guard.guard';
+import { HomeGuardGuard } from './home-guard.guard';
 
 const routes: Routes = [
-  {path:'', component: AppComponent},
-  {path:'admin-panel', component: AppComponent},
-  {path:'**', redirectTo:''}
+  {
+    path:'', 
+    component: AppComponent,
+    canActivate: [HomeGuardGuard]
+  },
+  {
+    path:'admin-panel', 
+    component: AppComponent,
+    canActivate: [UserGuardGuard]
+  },
+  {
+    path:'**', 
+    redirectTo:''
+  }
 ]
 
 @NgModule({

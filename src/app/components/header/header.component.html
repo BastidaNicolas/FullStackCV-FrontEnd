@@ -28,7 +28,8 @@
                     </div>
                     <div class="col-auto ps-0">
                         <button type="button" data-bs-toggle="modal" data-bs-target="#loginModal"
-                            class="btn btn-outline-light rounded-0 pt-1 pb-2 px-4">Login</button>
+                            class="btn btn-outline-light rounded-0 pt-1 pb-2 px-4" *ngIf="isRoute.url == '/'">Login</button>
+                        <button type="button" class="btn btn-outline-light rounded-0 pt-1 pb-2 px-4" *ngIf="isRoute.url == '/admin-panel'" (click)="handleLogout()">Logout</button>
                     </div>
                 </div>
                 <div class="mobile-menu row align-items-center justify-content-end" data-bs-toggle="offcanvas"
@@ -43,7 +44,8 @@
         <div class="offcanvas-header">
             <div class="col-auto ps-0">
                 <button type="button" data-bs-toggle="modal" data-bs-target="#loginModal"
-                    class="btn btn-outline-light rounded-0 pt-1 pb-2 px-4">Login</button>
+                            class="btn btn-outline-light rounded-0 pt-1 pb-2 px-4" *ngIf="isRoute.url == '/'">Login</button>
+                <button type="button" class="btn btn-outline-light rounded-0 pt-1 pb-2 px-4" *ngIf="isRoute.url == '/admin-panel'" (click)="handleLogout()">Logout</button>
             </div>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>

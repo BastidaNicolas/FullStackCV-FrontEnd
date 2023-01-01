@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PortfolioService } from './services/portfolio.service';
 
 @Component({
@@ -9,8 +10,12 @@ import { PortfolioService } from './services/portfolio.service';
 export class AppComponent {
   title = 'front-end';
   profileData:any;
+  isRoute:Router;
 
-  constructor(private portfolioData:PortfolioService) { }
+
+  constructor(private portfolioData:PortfolioService, private router:Router) { 
+    this.isRoute = router;
+  }
 
   ngOnInit(): void {
     this.portfolioData.getProfile()

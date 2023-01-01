@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { PortfolioService } from 'src/app/services/portfolio.service';
 
 @Component({
   selector: 'app-login-modal',
@@ -8,7 +11,11 @@ import { Component, OnInit } from '@angular/core';
 export class LoginModalComponent implements OnInit {
   register:boolean = false;
   forgotPass:boolean = false;
-  constructor() { }
+  isRoute:Router;
+
+  constructor(private portfolioService : PortfolioService, private cookieService : CookieService, private router:Router) {
+    this.isRoute = router;
+  }
 
   ngOnInit(): void {
   }
@@ -29,5 +36,16 @@ export class LoginModalComponent implements OnInit {
   }
   setForgotPass(value:boolean){
     this.forgotPass = value;
+  }
+
+  handleLogin(username:string, password:string){
+    let urlencoded = new URLSearchParams();
+    urlencoded.set('username', username);
+    urlencoded.set('password', password);
+
+    this.portfolioService.postLogin(urlencoded).subscribe(res => {
+      this.cookieService.set('token', JSON.parse(res).access_token, .5)
+      this.router.navigate(['/admin-panel'])
+    });
   }
 }

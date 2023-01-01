@@ -6,21 +6,19 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserGuardGuard implements CanActivate {
+export class HomeGuardGuard implements CanActivate {
 
   constructor(private cookieService: CookieService, private router: Router) { }
+
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
     const cookie = this.cookieService.check('token');
-    if (!cookie) {
-      return this.router.navigate(['/']);
+    if (cookie) {
+      return this.router.navigate(['/admin-panel']);
     } else {
       return true;
     }
-
-  }
-
+  } 
 }

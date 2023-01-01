@@ -7,14 +7,14 @@
                 <h5 class="modal-title fw-bold" *ngIf="forgotPass">Password Reset</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="setDefault(150)"></button>
             </div>
-            <div class="modal-body" *ngIf="!register && !forgotPass">
+            <div class="modal-body">
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label fw-bold">Username</label>
-                    <input type="text" class="form-control rounded-0" id="formGroupExampleInput" placeholder="Username">
+                    <input type="text" class="form-control rounded-0" id="formGroupExampleInput" [value]="" aria-label="username input" placeholder="Username" #usernameInput>
                 </div>
                 <div class="mb-3">
                     <label for="formGroupExampleInput2" class="form-label fw-bold">Password</label>
-                    <input type="text" class="form-control rounded-0" id="formGroupExampleInput2" placeholder="Password">
+                    <input type="password" class="form-control rounded-0" id="formGroupExampleInput2" placeholder="Password" #passwordInput>
                     <!-- <button type="button" class="btn btn-link p-0 fs-6 text-decoration-none" (click)="setForgotPass(true)">Forgot my
                         password</button> -->
                 </div>
@@ -58,7 +58,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal" *ngIf="!register && !forgotPass">Close</button>
                 <button type="button" class="btn btn-secondary rounded-0" (click)="setDefault(0)" *ngIf="register || forgotPass">Back</button>
-                <button type="button" class="btn btn-primary rounded-0" *ngIf="!register && !forgotPass">Login</button>
+                <button type="button" class="btn btn-primary rounded-0" (click)="handleLogin(usernameInput.value, passwordInput.value)">Login</button>
                 <button type="button" class="btn btn-primary rounded-0" *ngIf="register">Register</button>
                 <button type="button" class="btn btn-primary rounded-0" *ngIf="forgotPass">Send</button>
             </div>
