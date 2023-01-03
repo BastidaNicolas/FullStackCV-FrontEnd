@@ -18,12 +18,15 @@
                     <!-- <button type="button" class="btn btn-link p-0 fs-6 text-decoration-none" (click)="setForgotPass(true)">Forgot my
                         password</button> -->
                 </div>
-                <div class="mb-3 text-muted d-flex justify-content-evenly">
-                    <span>Username: user1</span>
-                    <span>Password: user1</span>
+                <div class="mb-3">
+                    <span *ngIf="erroInLogin" class="text-danger">Wrong username or password</span>
                 </div>
                 <div class="mb-3 text-muted d-flex text-center">
                     <span>This account allows you to have an admin view but wont allow you to edit the page.</span>
+                </div>
+                <div class="mb-3 text-muted d-flex justify-content-evenly">
+                    <span>Username: user1</span>
+                    <span>Password: user1</span>
                 </div>
                 <!-- <div class="mb-2 text-center">
                     <span class="d-block" >Don't have an account?</span>
