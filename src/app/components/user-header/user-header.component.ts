@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-header',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 export class UserHeaderComponent {
   @Input() data:any;
   isRoute:Router; 
+  apiRoute:String = environment.apiURL;
 
   @Output() profileUpdate = new EventEmitter<any>();
 
