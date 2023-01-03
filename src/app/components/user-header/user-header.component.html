@@ -2,14 +2,14 @@
     <button *ngIf="isRoute.url === '/admin-panel'" class="btn p-0 border-0 fs-4 text me-3 position-absolute top-100 end-0" style="z-index: 1;"
         data-bs-toggle="modal" data-bs-target="#profileModal"><i class="bi bi-pencil-square"></i></button>
     <div class="banner-container w-100 row-auto">
-        <img class="banner-image" src="{{'http://'+apiRoute+ data.bannerImageUrl}}" alt="">
+        <img class="banner-image" src="{{apiRoute+ data.bannerImageUrl}}" alt="">
         <!-- <div class="w-100 bg-secondary" style="min-height: 250px; max-height: 250px; overflow: hidden;">
         </div> -->
     </div>
     <div class="container position-absolute top-100 start-50 translate-middle px-lg-4">
         <div class="row mb-3 ms-lg-3">
             <div class="col-12 col-sm-auto mb-3 mb-sm-0 p-0 profile-image-container me-lg-2">
-                <img class="profile-image" src="{{'http://'+apiRoute+data.profileImageUrl}}" alt="">
+                <img class="profile-image" src="{{apiRoute+data.profileImageUrl}}" alt="">
             </div>
             <div class="col-12 col-sm align-self-end ps-sm-0">
                 <h2 class="mb-0 fw-bold">{{data.name}}</h2>
