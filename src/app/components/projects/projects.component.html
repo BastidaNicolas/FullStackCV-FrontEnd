@@ -16,7 +16,7 @@
                 <div class="col-12 col-md mb-2 mb-md-0 p-0 me-md-3 component-image-container" cdkDragHandle>
                     <div class="arrows-move-container fs-1" *ngIf="isEdit"><i class="bi bi-arrows-move"></i>
                     </div>
-                    <img class="component-image" src='{{"http://localhost:8080" + project.imageUrl}}'
+                    <img class="component-image" src='{{isUrl + project.imageUrl}}'
                         alt=''>
                 </div>
                 <div class="col px-0">

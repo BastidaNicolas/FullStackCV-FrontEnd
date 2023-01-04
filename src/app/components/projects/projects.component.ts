@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-projects',
@@ -14,6 +15,7 @@ export class ProjectsComponent implements OnInit {
   isEdit: boolean = false;
   isRoute:Router;
   hasBeenDraged: boolean = false;
+  isUrl:String=environment.apiURL;
   constructor(private portfolioService: PortfolioService, private router:Router) {
     this.isRoute = router;
   }
