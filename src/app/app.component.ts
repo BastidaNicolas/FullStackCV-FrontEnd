@@ -20,7 +20,6 @@ export class AppComponent {
   ngOnInit(): void {
     this.portfolioData.getProfile()
     .subscribe(data => {
-      console.log(data)
       this.profileData = data;
     })
   }
