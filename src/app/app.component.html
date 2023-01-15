@@ -1,4 +1,5 @@
 <app-login-modal></app-login-modal>
+<div *ngIf="error" class="text-danger fw-bold m-auto bg-danger bg-opacity-25" style="max-width: 812px;">BACKEND SERVER IS DOWN, PLEAS COMEBACK ANOTHER DAY :). Maybe next month, it's free hosting XD</div>
 <app-header [links]="profileData.links"></app-header>
 <app-user-header [data]="profileData" (profileUpdate)="onProfileUpdate($event)"></app-user-header>
 <app-skillz></app-skillz>
