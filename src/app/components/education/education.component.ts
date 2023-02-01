@@ -88,7 +88,7 @@ export class EducationComponent implements OnInit {
     let endDate = Date.parse(d2.replace(/-/g, '\/'));
     const currentDate = Date.now();
 
-    if(endDate <=  currentDate){
+    if(endDate >=  currentDate){
       return startDate + " - Current";
     }else{
       return startDate + " - " + new Date(endDate).toLocaleDateString();
