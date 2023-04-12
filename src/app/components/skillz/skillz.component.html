@@ -21,7 +21,8 @@
                         <div class="component-image-container" cdkDragHandle>
                             <div class="arrows-move-container fs-1" *ngIf="isEdit"><i class="bi bi-arrows-move"></i>
                             </div>
-                            <img class="component-image" src='{{apiURL   + skill.imageUrl}}' alt=''>
+                            <!-- {{apiURL   + skill.imageUrl}} -->
+                            <img class="component-image" src='{{skill.imageUrl}}' alt=''>
                         </div>
                         <div class="ms-3">
                             <span class="fw-bold text-capitalize">
