@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: 'https://fullstackcv-backend-production.up.railway.app'
+  apiURL: 'https://online-cv-74td.onrender.com'
 };
 
 /*
