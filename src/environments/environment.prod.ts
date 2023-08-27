@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: 'https://fullstackcv-backend-sklm-dev.fl0.io'
+  apiURL: 'https://online-cv-74td.onrender.com'
 };
