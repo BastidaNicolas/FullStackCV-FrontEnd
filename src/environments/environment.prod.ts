@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: 'https://fullstackcv-backend-production.up.railway.app'
+  apiURL: 'https://fullstackcv-backend-sklm-dev.fl0.io'
 };
